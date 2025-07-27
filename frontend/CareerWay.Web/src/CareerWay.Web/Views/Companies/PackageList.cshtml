@@ -1,0 +1,65 @@
+﻿@using CareerWay.Web.Models.Companies
+@{
+    ViewData["Title"] = "Paketlerim";
+    string getPackageName(int id)
+    {
+        if (id == 1)
+        {
+            return "Basit";
+        }
+        else if (id == 2)
+        {
+            return "Standart";
+        }
+        return "Plantinyum";
+    }
+
+    string getUsageName(bool isUsed)
+    {
+        if (isUsed)
+        {
+            return "Kullanıldı";
+        }
+        return "Kullanılabilir";
+    }
+}
+
+@model List<CompanyPackageResponse>
+
+<div class="dashboard-content container">
+    <div class="dashboard-widg-bar d-block">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="mb-4 tbl-lg rounded overflow-hidden">
+                    @if (Model.Count == 0)
+                    {
+                        <span>İş paketi satın almamışsınız.</span>
+                    }
+
+                    <div class="table-responsive bg-white">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Paket</th>
+                                    <th scope="col">Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td><span>@item.Id</span></td>
+                                        <td><a href="javascript:void(0);" class="theme-cl">@getPackageName(item.PackageId)</a></td>
+                                        <td><span class="theme-cl">@getUsageName(item.IsUsed)</span></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

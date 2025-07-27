@@ -1,0 +1,56 @@
+﻿@using CareerWay.Web.Models.Post
+@{
+    ViewData["Title"] = "İş İlanlarım";
+    ViewData["BreadcrumbTitle"] = "İş İlanlarım";
+}
+
+@model PostSearchRequest
+
+<div class="dashboard-content container">
+    <div class="dashboard-widg-bar d-block">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="mb-4 tbl-lg rounded overflow-hidden">
+                    <div class="table-responsive bg-white">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">İsim</th>
+                                    <th scope="col" class="text-center">Durum</th>
+                                    <th scope="col" class="text-center">Oluşturulma Tarihi</th>
+                                    <th scope="col" class="text-center">Son Başvuru Tarihi</th>
+                                    <th scope="col" class="text-center">İşlemler</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Data)
+                                {
+                                    <tr>
+                                        <td><span>@item.Id</span></td>
+                                        <td><span>@item.Title</span></td>
+                                        <td class="text-center"><span>@item.PostStatus.GetDisplayName()</span></td>
+                                        <td class="text-center"><span>@item.CreationDate.ToString("dd.MM.yyyy HH:mm")</span></td>
+                                        <td class="text-center"><span>@(item.ExpirationDate.HasValue? item.ExpirationDate.Value.ToString("dd.MM.yyyy HH:mm") : "-")</span></td>
+                                        <td class="text-center">
+                                            <a href="is-ilanlarim/@item.Id/basvuranlar" title="Başvuranlar" style="margin-right: 8px; color: #555;">
+                                                <i class="lni lni-eye"></i>
+                                            </a>
+                                            <a href="ilan-yayinla/@item.Id" title="Yayınla" style="margin-right: 8px; color: #555;">
+                                                <i class="lni lni-plus"></i>
+                                            </a>
+                                            <a href="/is-ilanlari/{@item.Slug}-{@item.Id}" title="Düzenle" style="margin-right: 8px; color: #555;">
+                                                <i class="lni lni-pencil"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

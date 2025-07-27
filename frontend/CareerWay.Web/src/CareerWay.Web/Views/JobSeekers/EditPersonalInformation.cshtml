@@ -1,0 +1,134 @@
+﻿@using CareerWay.Web.Models.JobSeekers
+
+@model EditJobSeekerRequest
+
+<div class="dashboard-wrap bg-light">
+    <div class="dashboard-content container px-3">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="/oz-gecmis-duzenle/kisisel-bilgiler" class="nav-link active" role="tab" aria-selected="true">Kişisel Bilgiler</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="/oz-gecmis-duzenle/okul-bilgilerim" class="nav-link" role="tab" aria-selected="false">Eğitim</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="/oz-gecmis-duzenle/referanslarim" class="nav-link" role="tab" aria-selected="false">Referanslarım</a>
+            </li>
+        </ul>
+        <!-- Sekme içerikleri -->
+        <div class="tab-content" id="resumeTabContent">
+
+            <!-- Create Resume -->
+            <div class="tab-pane fade show active" id="create-resume" role="tabpanel" aria-labelledby="create-resume-tab">
+                <div class="_dashboard_content bg-white rounded mb-4">
+                    <div class="_dashboard_content_body py-3 px-3">
+                        <form method="post" enctype="multipart/form-data" asp-action="EditPersonalInformation" asp-controller="JobSeekers">
+                            <div class="row">
+                                <!-- Dosya Alanı -->
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                    <div class="custom-file avater_uploads">
+                                        <input type="file" class="custom-file-input" id="customFile" name="profilePhotoFile">
+                                        <label class="custom-file-label" for="customFile"><i class="fa fa-user"></i></label>
+                                    </div>
+                                </div>
+
+                                <!-- Form Alanları -->
+                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-control rounded" name="FirstName" placeholder="First Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control rounded" name="LastName" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                <input type="text" class="form-control rounded" name="PhoneNumber">
+                                            </div>
+                                        </div> 
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" class="form-control rounded" name="Address">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Birth Date</label>
+                                                <input type="date" class="form-control rounded" name="BirthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Website</label>
+                                                <input type="text" class="form-control rounded" name="WebSite">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Instagram</label>
+                                                <input type="text" class="form-control rounded" name="Instragram">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Facebook</label>
+                                                <input type="text" class="form-control rounded" name="Facebook">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Twitter</label>
+                                                <input type="text" class="form-control rounded" name="Twitter">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Linkedin</label>
+                                                <input type="text" class="form-control rounded" name="Linkedin">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Github</label>
+                                                <input type="text" class="form-control rounded" name="Github">
+                                            </div>
+                                        </div> 
+                                        <div class="col-xl-6 col-lg-6">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" name="IsSmoking" value="true" />
+                                                <label class="form-check-label">Sigara İçiyor</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="form-group">
+                                                <label>About Me</label>
+                                                <textarea name="AboutMe" class="form-control" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <!-- footer -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="py-3">© 2023 Workplex. Designed By ThemezHub.</div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@using CareerWay.Web.Models.Post
+@{
+    ViewData["Title"] = "İş Başvurularım";
+    ViewData["BreadcrumbTitle"] = "İş Başvurularım";
+}
+
+@model PostSearchRequest
+
+<div class="dashboard-content container">
+    <div class="dashboard-widg-bar d-block">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="mb-4 tbl-lg rounded overflow-hidden">
+                    <div class="table-responsive bg-white">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">İsim</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Data)
+                                {
+                                    <tr>
+                                        <td><span>@item.Id</span></td>
+                                        <td><span><a href="/is-ilanlari/@item.Slug-@item.Id">@item.Title</a></span></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

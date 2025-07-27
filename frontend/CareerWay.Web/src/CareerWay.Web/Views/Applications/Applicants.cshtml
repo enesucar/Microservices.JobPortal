@@ -1,0 +1,47 @@
+﻿@using CareerWay.ApplicationService.API.Models
+@{
+    ViewData["Title"] = "Başvurular";
+    ViewData["BreadcrumbTitle"] = "Başvurular";
+}
+
+@model ApplicantionsResponse
+
+<div class="dashboard-content container">
+    <div class="dashboard-widg-bar d-block">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="mb-4 tbl-lg rounded overflow-hidden">
+                    <div class="table-responsive bg-white">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col" class="text-center">İsim Soyisim</th>
+                                    <th scope="col" class="text-center">Başvuru Tarihi</th>
+                                    <th scope="col" class="text-center">Son Durum</th>
+                                    <th scope="col" class="text-center">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.JobSeekers)
+                                {
+                                    <tr>
+                                        <td><span>@item.Id</span></td>
+                                        <td class="text-center"><span><img src="https://careerway.blob.core.windows.net/jobseeker-profile-photos/@item.ProfilePhoto" style="width:30px" /> @item.FirstName @item.LastName</span></td>
+                                        <td class="text-center"><span>@item.CreationDate.ToString("dd.MM.yyyy")</span></td>
+                                        <td class="text-center"><span>@item.Status.GetDisplayName()</span></td>
+                                        <td class="text-center">
+                                            <a href="/oz-gecmis-goruntule/@item.Id" title="Görüntüle" style="margin-right: 8px; color: #555;">
+                                                <i class="lni lni-eye"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+﻿@using CareerWay.Web.Models.Login
+
+@model LoginRequest
+
+@{
+    ViewData["Title"] = "Login";
+    var error = ViewData["Errors"] as string;
+}
+
+<style>
+    .toggle-btn {
+        flex: 1 1 45%;
+        margin: 0 8px;
+        border-radius: 30px;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .toggle-btn.active {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+    }
+
+    .toggle-btn:not(.active) {
+        background-color: transparent;
+        color: #0d6efd;
+        border: 2px solid #0d6efd;
+    }
+
+    .form-group input.form-control {
+        padding: 10px 12px; /* Daha küçük input yüksekliği */
+        font-size: 1rem; /* Biraz daha küçük yazı */
+        border-radius: 8px;
+        margin-bottom: 12px; /* Inputlar arası boşluk biraz azaldı */
+    }
+
+    button[type="submit"].btn-primary {
+        width: 100%;
+        padding: 10px 0;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: 30px;
+        border: 2px solid #0d6efd;
+        background-color: transparent;
+        color: #0d6efd;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        box-shadow: none;
+        margin-top: 24px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 50px; /* Butonların üstüne boşluk eklendi */
+    } 
+</style>
+
+<div class="section">
+    <div class="container" style="max-width: 420px;">
+        <h3 class="text-center mb-3">Giriş</h3>
+
+        @if (!error.IsNullOrWhiteSpace())
+        {
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <li><span>@error</span></li>
+                </ul>
+            </div>
+        }
+
+        <!-- İş Arayan / İş Veren Butonları -->
+        <div class="btn-container">
+            <button id="btnJobseeker" type="button" class="toggle-btn active">İş Arayan</button>
+            <button id="btnEmployer" type="button" class="toggle-btn">İş Veren</button>
+        </div>
+
+        <!-- Tek Form -->
+        <form class="form-ad" asp-controller="Login" asp-action="Index" method="POST">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label asp-for="@Model.Email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" asp-for="@Model.Email">
+                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-12">
+                    <div class="mb-3 col-md-12">
+                        <label asp-for="@Model.Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" asp-for="@Model.Password">
+                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+        </form>
+    </div>
+
+</div>
+ 
+<script>
+    const btnJobseeker = document.getElementById("btnJobseeker");
+    const btnEmployer = document.getElementById("btnEmployer");
+    const emailInput = document.getElementById("email");
+
+    btnJobseeker.addEventListener("click", () => {
+      btnJobseeker.classList.add("active");
+      btnEmployer.classList.remove("active");
+      emailInput.placeholder = "example@gmail.com";
+    });
+
+    btnEmployer.addEventListener("click", () => {
+      btnEmployer.classList.add("active");
+      btnJobseeker.classList.remove("active");
+      emailInput.placeholder = "example@company.com";
+    });
+</script>

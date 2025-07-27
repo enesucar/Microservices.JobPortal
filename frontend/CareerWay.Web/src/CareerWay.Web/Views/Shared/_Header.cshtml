@@ -1,0 +1,105 @@
+﻿@using CareerWay.Web.Constants
+@using CareerWay.Web.Interfaces
+
+@inject IUser User
+
+<div class="header header-light dark-text">
+	<div class="container">
+		<nav id="navigation" class="navigation navigation-landscape">
+			<div class="nav-header">
+				<a class="nav-brand" href="#">
+					<img src="/assets/img/logo.png" class="logo" alt="" />
+				</a>
+				<div class="nav-toggle"></div>
+				<div class="mobile_nav">
+					<ul>
+						<li>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#login" class="theme-cl fs-lg">
+								<i class="lni lni-user"></i>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-post-job.html" class="crs_yuo12 w-auto text-white theme-bg">
+								<span class="embos_45"><i class="fas fa-plus-circle me-1 me-1"></i>Post Job</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav-menus-wrapper" style="transition-property: none;">
+				<ul class="nav-menu">
+
+					<li>
+						<a href="/">Ana Sayfa</a> 
+					</li>
+					@if (User.IsInRole(RoleConsts.Company))
+					{
+						<li>
+							<a href="/is-ilanlarim">İş İlanlarım</a>
+						</li>
+						<li>
+							<a href="/is-paketlerim">Paketlerim</a>
+						</li>
+						<li>
+							<a href="/paket-satin-al">Paket Satın Al</a>
+						</li>
+						<li>
+							<a href="#">Aday Havuzu</a>
+						</li>
+					} 
+					else if (User.IsInRole(RoleConsts.JobSeeker))
+					{
+						<li>
+							<a href="/is-ilanları">İş İlanları</a>
+						</li>
+						<li>
+							<a href="/oz-gecmisim">Öz Geçmişim</a>
+						</li>
+						<li>
+							<a href="/is-basvurularim">Başvurduğum İlanlar</a>
+						</li>
+					}
+					else
+					{
+						<li>
+							<a href="/is-ilanlari">İş İlanları</a>
+						</li>
+					}
+
+				</ul>
+
+				<ul class="nav-menu nav-menu-social align-to-right">
+					@if (User.IsAuthenticated)
+					{
+						<li>
+							<a href="/cikis"   class="ft-medium">
+								<i class="lni lni-user me-2"></i>Çıkış Yap
+							</a>
+						</li>
+					}
+					else
+					{
+						<li>
+							<a href="/is-veren-girisi"  class="ft-medium">
+								<i class="lni lni-user me-2"></i>Firma Girişi/Kaydı
+							</a>
+						</li>
+						<li>
+							<a href="/is-arayan-girisi" class="ft-medium">
+								<i class="lni lni-user me-2"></i>İş Arayan Girişi/Kaydı
+							</a>
+						</li>
+					}
+					@if (User.IsInRole(RoleConsts.Company))
+					{
+						<li class="add-listing">
+							<a href="/is-ilani-olustur" class="theme-bg">
+								<i class="lni lni-circle-plus me-1"></i> İş İlanı Oluştur
+							</a>
+						</li>
+					}
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>0598fb0c-673e-4f82-b5be-8d5c7488b0c9</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.4.0" />
+		<PackageReference Include="Azure.Identity" Version="1.14.0" />
+		<PackageReference Include="CareerWay.Shared.AspNetCore" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.AspNetCore.Logging" Version="1.3.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.31.1" />
+		<PackageReference Include="Grpc.AspNetCore.Server" Version="2.71.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.71.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference> 		 
+		<PackageReference Include="Scalar.AspNetCore" Version="2.4.13" />
+		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
+		<PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.8" />
+
+	</ItemGroup> 
+	
+  <ItemGroup>
+    <ProjectReference Include="..\CareerWay.JobSeekerService.Infrastructure\CareerWay.JobSeekerService.Infrastructure.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\jobseeker.proto" GrpcServices="Both" />
+	</ItemGroup>
+</Project>

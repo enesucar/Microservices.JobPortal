@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerWay.JobAdvertService.Domain", "src\CareerWay.JobAdvertService.Domain\CareerWay.JobAdvertService.Domain.csproj", "{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerWay.JobAdvertService.Application", "src\CareerWay.JobAdvertService.Application\CareerWay.JobAdvertService.Application.csproj", "{A336E281-04B5-486B-A78B-0A1EEF379381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerWay.JobAdvertService.Infrastructure", "src\CareerWay.JobAdvertService.Infrastructure\CareerWay.JobAdvertService.Infrastructure.csproj", "{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerWay.JobAdvertService.API", "src\CareerWay.JobAdvertService.API\CareerWay.JobAdvertService.API.csproj", "{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A336E281-04B5-486B-A78B-0A1EEF379381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A336E281-04B5-486B-A78B-0A1EEF379381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A336E281-04B5-486B-A78B-0A1EEF379381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A336E281-04B5-486B-A78B-0A1EEF379381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{548F3CB0-6BB5-4A35-814C-6A6C19EE55C1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A336E281-04B5-486B-A78B-0A1EEF379381} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4EDD04E2-147B-45EB-B885-7DC1BB16A0E6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{61E756D6-3D20-4AC3-A4ED-B9B89C5CE0CE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E8730BF-C8FC-4676-A67B-D52A1628DEE6}
+	EndGlobalSection
+EndGlobal

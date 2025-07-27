@@ -1,0 +1,142 @@
+﻿@using CareerWay.Web.Models.Post
+@model CreatePostRequest
+
+
+<div class="dashboard-wrap bg-light">
+    <div class="dashboard-content container">
+        <div class="dashboard-widg-bar d-block">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="_dashboard_content bg-white rounded mb-4">
+                        <div class="_dashboard_content_body py-3 px-3">
+                            @if (Model.PackageId == -1)
+                            {
+                                <div class="p-3 mb-2 bg-danger text-white">Paket hakkınız kalmamıştır. İş ilanı açmak için paket satın alınız.</div>
+                            }
+                            else
+                            {
+                                <form class="row" asp-controller="Posts" asp-action="CreatePost" method="post">
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="row">
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label asp-for="Title" class="text-dark ft-medium">Başlık</label>
+                                                    <input type="text" class="form-control rounded" asp-for="Title">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label asp-for="Title" class="text-dark ft-medium">Açıklama</label>
+                                                    <textarea class="form-control rounded" placeholder="Job Description" asp-for="Description"></textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Paket</label>
+                                                    <select asp-items="ViewBag.Packages" class="form-control" asp-for="CompanyPackageId">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Çalışma Şekli</label>
+                                                    <select asp-items="ViewBag.WorkingTypes" class="form-control" asp-for="WorkingType">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Pozisyon Seviyesi</label>
+                                                    <select asp-items="ViewBag.PositionLevelTypes" class="form-control" asp-for="PositionLevelType">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Sürücü Lisansı</label>
+                                                    <select asp-items="ViewBag.DriverLicenseTypes" class="form-control" asp-for="DriverLicenseType">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Cinsiyet</label>
+                                                    <select asp-items="ViewBag.GenderTypes" class="form-control" asp-for="GenderType">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Departmanlar</label>
+                                                    <select asp-items="ViewBag.Departments" class="form-control" asp-for="DepartmantId">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Pozisyon</label>
+                                                    <select asp-items="ViewBag.Positions" class="form-control" asp-for="PositionId">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Şehir</label>
+                                                    <select asp-items="ViewBag.Cities" class="form-control" asp-for="CityId">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Tecrübe</label>
+                                                    <select asp-items="ViewBag.ExperienceTypes" class="form-control" asp-for="ExperienceType">
+                                                        <option value="">-- Seçiniz --</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-md ft-medium text-light rounded theme-bg">Devam Et</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- footer -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="py-3">© 2023 Workplex. Designd By ThemezHub.</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

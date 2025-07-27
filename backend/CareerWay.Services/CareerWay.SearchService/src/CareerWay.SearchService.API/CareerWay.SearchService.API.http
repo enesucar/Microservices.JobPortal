@@ -1,0 +1,6 @@
+@CareerWay.SearchService.API_HostAddress = http://localhost:5239
+
+GET {{CareerWay.SearchService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

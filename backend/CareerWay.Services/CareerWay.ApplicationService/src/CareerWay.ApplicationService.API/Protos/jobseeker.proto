@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "JobSeekerGrpcService";
+
+service JobSeekerService {
+  rpc GetJobSeekerList (JobSeekerListRequest) returns (JobSeekerListResponse);
+}
+
+message JobSeekerListRequest {
+   repeated int64 ids = 1;
+}
+
+message JobSeekerListResponse {
+  repeated JobSeekerListResponseModel JobSeekers = 1;
+}
+
+message JobSeekerListResponseModel {
+  int64 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  google.protobuf.StringValue profile_photo = 4;
+}

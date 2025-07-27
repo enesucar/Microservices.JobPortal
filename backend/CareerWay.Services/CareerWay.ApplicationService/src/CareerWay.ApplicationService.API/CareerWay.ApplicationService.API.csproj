@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>811464ea-e0e0-4f4d-ba8b-831f13fe16c4</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CareerWay.Shared.AspNetCore" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.AspNetCore.Logging" Version="1.3.0" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.71.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
+		<PackageReference Include="Scalar.AspNetCore" Version="2.4.13" />
+		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
+		<PackageReference Include="CareerWay.Shared.Caching" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.CorrelationId" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.EventBus" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.Guids" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.Security" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.TimeProviders" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.Domain" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.Caching.Redis" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.EventBus.Kafka" Version="1.3.0" />
+		<PackageReference Include="CareerWay.Shared.Json.Newtonsoft" Version="1.3.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.31.1" /> 
+		<PackageReference Include="Grpc.Tools" Version="2.71.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.4.0" />
+		<PackageReference Include="Azure.Identity" Version="1.14.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6" />
+		<PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.8" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\jobseeker.proto" GrpcServices="Client" />
+	</ItemGroup>
+</Project>

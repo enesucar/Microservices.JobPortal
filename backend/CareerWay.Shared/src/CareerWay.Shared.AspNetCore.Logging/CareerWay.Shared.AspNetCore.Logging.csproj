@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CareerWay.Shared.AspNetCore\CareerWay.Shared.AspNetCore.csproj" />
+    <ProjectReference Include="..\CareerWay.Shared.Json\CareerWay.Shared.Json.csproj" />
+  </ItemGroup>
+
+</Project>

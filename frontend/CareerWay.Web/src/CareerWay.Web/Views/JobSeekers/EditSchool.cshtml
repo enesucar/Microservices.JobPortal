@@ -1,0 +1,135 @@
+﻿@using CareerWay.Web.Models.JobSeekers
+
+@model CreateJobSeekerSchoolViewModel
+
+<div class="dashboard-wrap bg-light">
+    <div class="dashboard-content container px-3">
+        @await Html.PartialAsync("_EditTab.cshtml")
+
+        <!-- Sekme içerikleri -->
+        <div class="tab-content" id="resumeTabContent">
+            <!-- Education Details -->
+            <form class="row" asp-action="EditSchool" asp-controller="JobSeekers">
+
+                <div class="tab-pane fade show active" id="education" role="tabpanel" aria-labelledby="education-tab">
+                    <div class="_dashboard_content bg-white rounded mb-4">
+                        <div class="_dashboard_content_body py-3 px-3" id="schools-container">
+                            @for (int i = 0; i < Model.Schools.Count; i++)
+                            {
+
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="gray rounded p-3 mb-3 position-relative">
+                                        <button type="button" class="aps-clone remove-school"><i class="fas fa-times"></i></button>
+                                        <div class="form-group">
+                                            <label class="text-dark ft-medium">School Name</label>
+                                            <input type="text" class="form-control rounded" name="[@i].Name" value="@Model.Schools[i].Name" placeholder="School Name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-dark ft-medium">Education Level</label>
+                                            @Html.DropDownListFor(m => m.Schools[i].EducationLevelType, (List<SelectListItem>)ViewBag.EducationLevelTypes, "Select", new { @class = "form-control rounded" })
+                                        </div>
+                                        <div class="form-row row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">Start Year</label>
+                                                    @Html.TextBoxFor(m => m.Schools[i].StartYear, new { @class = "form-control rounded", type = "number", placeholder = "2020" })
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label class="text-dark ft-medium">End Year</label>
+                                                    @Html.TextBoxFor(m => m.Schools[i].EndYear, new { @class = "form-control rounded", type = "number", placeholder = "2024" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            }
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="form-group">
+                                    <button type="button" class="btn gray ft-medium apply-btn fs-sm rounded" onclick="addEducation()">
+                                        <i class="fas fa-plus me-1"></i> Eğitim Bilgisi Ekle
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save & Preview Button -->
+                <div class="row mt-3">
+                    <div class="col-lg-12 col-md-12">
+                        <button type="submit" class="btn btn-md ft-medium text-light rounded theme-bg">Save & Preview</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- footer -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="py-3">© 2023 Workplex. Designed By ThemezHub.</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let index = @Model.Schools.Count;
+
+    function addEducation() {
+        const container = document.getElementById("schools-container");
+
+        const html = `
+            <div class="gray rounded p-3 mb-3 position-relative school-block" data-index="${index}">
+                <button type="button" class="aps-clone remove-school"><i class="fas fa-times"></i></button>
+
+                <div class="form-group">
+                    <label class="text-dark ft-medium">School Name</label>
+                    <input type="text" name="Schools[${index}].Name" class="form-control rounded" placeholder="School Name" />
+                </div>
+
+                <div class="form-group">
+                    <label class="text-dark ft-medium">Education Level</label>
+                    <select name="Schools[${index}].EducationLevelType" class="form-control rounded">
+                        @foreach (var item in (List<SelectListItem>)ViewBag.EducationLevelTypes)
+                        {
+                                    <text><option value="@item.Value">@item.Text</option></text>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-row row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="text-dark ft-medium">Start Year</label>
+                            <input type="number" name="Schools[${index}].StartYear" class="form-control rounded" placeholder="2020" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="text-dark ft-medium">End Year</label>
+                            <input type="number" name="Schools[${index}].EndYear" class="form-control rounded" placeholder="2024" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML('beforeend', html);
+        index++;
+    }
+
+    document.addEventListener("click", function (e) {
+        if (e.target.closest(".remove-school")) {
+            e.preventDefault();
+            e.target.closest(".school-block").remove();
+        }
+    });
+
+</script> 

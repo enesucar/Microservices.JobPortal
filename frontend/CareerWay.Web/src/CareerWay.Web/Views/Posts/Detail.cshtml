@@ -1,0 +1,268 @@
+﻿@using CareerWay.Web.Models.Post
+
+@{
+	ViewData["Title"] = "İş İlanlarım";
+	ViewData["BreadcrumbTitle"] = "İş İlanlarım";
+}
+
+@model PostDetailViewModel
+
+<section class="bg-light py-5 position-relative">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+				<div class="bg-white rounded px-3 py-4 mb-4">
+					<div class="jbd-01 d-flex align-items-center justify-content-between">
+						<div class="jbd-flex d-flex align-items-center justify-content-start">
+							<!-- Şirket Logosu -->
+							<div class="jbd-01-thumb">
+								<img src="/assets/img/c-1.png" class="img-fluid" width="120" alt="Şirket Logosu" />
+							</div>
+
+							<!-- İçerik -->
+							<div class="jbd-01-caption ps-3">
+								<!-- İş İlan Başlığı -->
+								<div class="tbd-title">
+									<h4 class="mb-1 ft-medium fs-md">@Model.PostDetail.Title</h4>
+								</div> 
+								<!-- Konum ve Tip -->
+								<div class="jbl_location mb-2">
+									<span><i class="lni lni-map-marker me-1"></i>@Model.PostDetail.City.Name</span>
+								</div>
+
+								<!-- İlan Tarihleri -->
+								<div class="jbl_location    mb-2">
+									<i class="lni lni-calendar me-1"></i>Son Başvuru Tarihi: @(Model.PostDetail.ExpirationDate ?? DateTime.Now.AddDays(30))
+@* 									<span class="ms-2"><i class="lni lni-reload me-1"></i> Güncelleme: 17 Haziran 2025</span>
+ *@								</div>
+
+								<!-- Görüntülenme ve Başvuru Sayısı -->
+								<div class="jbl_location">
+									<span><i class="lni lni-eye me-1"></i>@Model.PostDetail.ViewCount Görüntülenme</span>
+									<span class="ms-3"><i class="lni lni-users me-1"></i>@Model.ApplicationCount Başvuru</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Sağdaki Butonlar -->
+						<div class="jbd-01-right text-right">
+							@if (Model.IsApplied)
+							{ 
+								<div class="jbl_button mb-2">
+									<a href="/basvuruyu-geri-al/@Model.PostDetail.Slug/@Model.PostDetail.Id" class="btn rounded theme-bg-light trans-bg fs-sm ft-medium w-100">Başvuruyu Geri Al</a>
+								</div>
+							} 
+							else
+							{ 
+								<div class="jbl_button mb-2">
+									<a href="/basvur/@Model.PostDetail.Slug/@Model.PostDetail.Id" class="btn rounded theme-bg-light theme-cl fs-sm ft-medium w-100">Başvur</a>
+								</div>
+							}
+							<div class="jbl_button">
+								<a href="javascript:void(0);" class="btn rounded bg-white border fs-sm ft-medium">Şirketi Göster</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bg-white rounded mb-4">
+					<div class="jbd-01 px-3 py-4">
+						<div class="jbd-details mb-4">
+							<h5 class="ft-medium fs-md">İş İlanı Açıklaması</h5>
+							 @Html.Raw(Model.PostDetail.Description)
+						</div>
+
+					@* 	<div class="jbd-details mb-3">
+							<h5>Requirements:</h5>
+							<div class="position-relative row">
+								<div class="col-lg-12 col-md-12 col-12">
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Strong core PHP Hands on experience.</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Strong Expertise in CodeIgniter Framework .</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Understanding of MVC design pattern.</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Expertise in PHP, MVC Frameworks and good technology exposure of Codeigniter .</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Basic understanding of front-end technologies, such as JavaScript, HTML5, and CSS3</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Good knowledge of relational databases, version control tools and of developing web services.</h6>
+										</div>
+									</div>
+									<div class="mb-2 me-4 ml-lg-0 mr-lg-4">
+										<div class="d-flex align-items-center">
+											<div class="rounded-circle bg-light-success theme-cl p-1 small d-flex align-items-center justify-content-center">
+												<i class="fas fa-check small"></i>
+											</div>
+											<h6 class="mb-0 ms-3 text-muted fs-sm">Proficient understanding of code versioning tools, such as Git.</h6>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+			 *@			<div class="jbd-details mb-4">
+							<h5 class="ft-medium fs-md">İlan Bilgileri</h5>
+							<div class="other-details">
+								<div class="details ft-medium"><label class="text-muted">Departmant</label><span class="text-dark">@Model.PostDetail.Departmant.Name</span></div>
+								<div class="details ft-medium"><label class="text-muted">Pozisyon</label><span class="text-dark">@Model.PostDetail.Position.Name</span></div>
+								<div class="details ft-medium"><label class="text-muted">Çalışma Şekli</label><span class="text-dark">@Model.PostDetail.WorkingType.GetDisplayName()</span></div>
+								<div class="details ft-medium"><label class="text-muted">Pozisyon Seviyesi</label><span class="text-dark">@Model.PostDetail.PositionLevelType.GetDisplayName()</span></div>
+								<div class="details ft-medium"><label class="text-muted">Tecrübe</label><span class="text-dark">@Model.PostDetail.ExperienceType.GetDisplayName()</span></div>
+							</div>
+						</div>
+
+						<div class="jbd-details mb-1">
+							<h5 class="ft-medium fs-md">Anahtar Beceriler</h5>
+							<ul class="p-0 skills_tag text-left">
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">Joomla</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">WordPress</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">Javascript</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">PHP</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">HTML5</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">MS SQL</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">SQL Development</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">Dynamod</span></li>
+								<li><span class="px-2 py-1 medium skill-bg rounded text-skill">Database</span></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<div class="jbd-02 px-3 py-3 br-top">
+						<div class="jbd-02-flex d-flex align-items-center justify-content-between">
+							<div class="jbd-02-social">
+								<ul class="jbd-social">
+									<li><i class="ti-sharethis"></i></li>
+									<li><a href="javascript:void(0);"><i class="ti-facebook"></i></a></li>
+									<li><a href="javascript:void(0);"><i class="ti-twitter"></i></a></li>
+									<li><a href="javascript:void(0);"><i class="ti-linkedin"></i></a></li>
+									<li><a href="javascript:void(0);"><i class="ti-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+				<div class="jb-apply-form bg-white rounded mb-4 p-3 ps-2">
+					<!-- buraya padding-start -->
+					<!-- Başlık -->
+					<h4 class="ft-medium fs-md mb-3 ps-4">
+						<!-- buraya da padding-start -->
+						<i class="lni lni-briefcase me-2 text-primary"></i>Şirket Bilgileri
+					</h4>
+
+					<!-- Liste -->
+					<ul class="list-group list-group-flush ps-4">
+						<!-- buraya da -->
+						<li class="list-group-item ps-0">
+							<i class="lni lni-apartment me-2 text-primary"></i>
+							<strong>Şirket Adı:</strong> ABC Teknoloji A.Ş.
+						</li>
+						<li class="list-group-item ps-0">
+							<i class="lni lni-map-marker me-2 text-primary"></i>
+							<strong>Lokasyon:</strong> İstanbul, Türkiye
+						</li>
+						<li class="list-group-item ps-0">
+							<i class="lni lni-network me-2 text-primary"></i>
+							<strong>Sektör:</strong> Yazılım & Danışmanlık
+						</li>
+						<li class="list-group-item ps-0">
+							<i class="lni lni-users me-2 text-primary"></i>
+							<strong>Çalışan Sayısı:</strong> 250+
+						</li>
+						<li class="list-group-item ps-0">
+							<i class="lni lni-envelope me-2 text-primary"></i>
+							<strong>İletişim:</strong> info@abc.com
+						</li>
+					</ul>
+
+					<!-- Buton -->
+					<a href="/company/abc" class="btn btn-outline-primary mt-3 w-100">
+						<i class="lni lni-user"></i> Şirket Profilini Gör
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- ============================ Job Details End ================================== -->
+<!-- ======================= Related Jobs ======================== -->
+<section>
+	<div class="container">
+
+		<div class="row justify-content-center">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+				<div class="sec_title position-relative text-center mb-5">
+					<h6 class="text-muted mb-0">Benzer İlanlar</h6>
+					<h2 class="ft-bold">Bu İlana Benzer İlanlar</h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- row -->
+		<div class="row align-items-center g-xl-3 g-lg-3 g-3">
+			@foreach (var item in Model.RelatedJobs)
+			{
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+					<div class="job_grid border rounded ">
+						<div class="position-absolute ab-left"><button type="button" class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray"><i class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button></div>
+						<div class="position-absolute ab-right"><span class="medium theme-cl theme-bg-light px-2 py-1 rounded">@item.WorkingType.GetDisplayName()</span></div>
+						<div class="job_grid_thumb mb-3 pt-5 px-3">
+							<a href="/is-ilanlari/@item.Slug/@item.Id" class="d-block text-center m-auto"><img src="/assets/img/c-1.png" class="img-fluid" width="70" alt="" /></a>
+						</div>
+						<div class="job_grid_caption text-center pb-5 px-3">
+							<h6 class="mb-0 lh-1 ft-medium medium"><a href="employer-detail.html" class="text-muted medium">@item.Company.Title</a></h6>
+							<h4 class="mb-0 ft-medium medium"><a href="job-detail.html" class="text-dark fs-md">@item.Title</a></h4>
+							<div class="jbl_location"><i class="lni lni-map-marker me-1"></i><span>@item.City.Name</span></div>
+						</div>
+						<div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
+							<div class="df-1 text-muted"><i class="lni lni-wallet me-1"></i>$50k - $80k PA.</div>
+							<div class="df-1 text-muted"><i class="lni lni-timer me-1"></i>@item.ExpirationDate.Value.ToString("dd.MM.yyyy")</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+		<!-- row -->
+
+	</div>
+</section>
